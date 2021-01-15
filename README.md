@@ -1,4 +1,4 @@
-# Certified Kubernetes Application Developer (CKAD) Crash Course
+# CKAD Crash Course
 
 Solutions to https://github.com/bmuschko/ckad-crash-course.
 
