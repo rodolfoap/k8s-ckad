@@ -12,4 +12,4 @@ Solutions to https://github.com/bmuschko/ckad-crash-course.
 * [Golden Guide to Kubernetes Application Development](https://matthewpalmer.net/kubernetes-app-developer)
 * [KodeKloud CKAD Course](https://kodekloud.com/p/kubernetes-certification-course)
 
-[slides.pdf](https://github.com/rodolfoap/k8s-ckad/blob/master/slides.pdf)
+![slides.pdf](https://github.com/rodolfoap/k8s-ckad/blob/master/slides.pdf)
