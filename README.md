@@ -14,7 +14,7 @@ Check the guide [here](https://github.com/rodolfoap/k8s-ckad/blob/master/slides.
 * [Golden Guide to Kubernetes Application Development](https://matthewpalmer.net/kubernetes-app-developer)
 * [KodeKloud CKAD Course](https://kodekloud.com/p/kubernetes-certification-course)
 
-==============================================================================================
+==============================================================
 
 # Exercise 1: creating-inspecting-pod
 
@@ -33,7 +33,7 @@ In this exercise, you will practice the creation of a new Pod in a namespace. On
 9. Render the logs of Pod `mypod`.
 10. Delete the Pod and the namespace.
 
-==============================================================================================
+==============================================================
 
 # Exercise 2: creating-using-configmap
 
@@ -51,7 +51,7 @@ In this exercise, you will first create a ConfigMap from predefined values in a 
 4. Shell into the Pod and print out the created environment variables. You should find `DB_URL` and `DB_USERNAME` with their appropriate values.
 5. (Optional) Discuss: How would you approach hot reloading of values defined by a ConfigMap consumed by an application running in Pod?
 
-==============================================================================================
+==============================================================
 
 # Exercise 3: creating-using-secret
 
@@ -64,7 +64,7 @@ In this exercise, you will first create a Secret from literal values. Next, you'
 3. Shell into the Pod and print out the created environment variables. You should find `DB_PASSWORD` variable.
 4. (Optional) Discuss: What is one of the benefit of using a Secret over a ConfigMap?
 
-==============================================================================================
+==============================================================
 
 # Exercise 4: creating-securitycontext
 
@@ -76,7 +76,7 @@ In this exercise, you will create a Pod that defines a filesystem group ID as se
 2. Files created on the volume should use the filesystem group ID 3000.
 3. Get a shell to the running container and create a new file named `logs.txt` in the directory `/data/app`. List the contents of the directory and write them down.
 
-==============================================================================================
+==============================================================
 
 # Exercise 5: defining-resource-requirements
 
@@ -101,7 +101,7 @@ spec:
 1. Create a new Pod that exceeds the limits of the resource quota requirements e.g. by defining 1G of memory. Write down the error message.
 2. Change the request limits to fulfill the requirements to ensure that the Pod could be created successfully. Write down the output of the command that renders the used amount of resources for the namespace.
 
-==============================================================================================
+==============================================================
 
 # Exercise 6: using-service-account
 
@@ -114,7 +114,7 @@ In this exercise, you will create a ServiceAccount and assign it to a Pod.
 3. Create a Pod named `backend` that uses the image `nginx` and the identity `backend-team` for running processes.
 4. Get a shell to the running container and print out the token of the service account.
 
-==============================================================================================
+==============================================================
 
 # Exercise 7: creating-init-container
 
@@ -131,7 +131,7 @@ Kubernetes runs an init container before the main container. In this scenario, t
 5. Run the command `curl localhost:8080` from the main application container. The response should render a database URL derived off the information in the configuration file.
 6. (Optional) Discuss: How would you approach a debugging a failing command inside of the init container?
 
-==============================================================================================
+==============================================================
 
 # Exercise 8: implementing-adapter-pattern
 
@@ -145,7 +145,7 @@ The adapter pattern helps with providing a simplified, homogenized view of an ap
 2. Before creating the Pod, define an `emptyDir` volume. Mount the volume in both containers with the path `/var/logs`.
 3. Create the Pod, log into the container `transformer`. The current directory should continuously write a new file every 20 seconds.
 
-==============================================================================================
+==============================================================
 
 # Exercise 9: defining-pod-probes
 
@@ -159,7 +159,7 @@ In this exercise, you will create a Pod running a NodeJS application. The Pod wi
 4. Shell into container and curl `localhost:3000`. Write down the output. Exit the container.
 5. Retrieve the logs from the container. Write down the output.
 
-==============================================================================================
+==============================================================
 
 # Exercise 10: debugging-misconfigured-pod
 
@@ -196,7 +196,7 @@ status: {}
 3. Follow the logs of the running container and identify an issue.
 4. Fix the issue by shelling into the container. After resolving the issue the current date should be written to a file. Render the output.
 
-==============================================================================================
+==============================================================
 
 # Exercise 11: using-labels-annotations
 
@@ -221,7 +221,7 @@ In this exercise, you will exercise the use of labels and annotations for a set 
 6. Remove the label `env` from the `backend` Pod and rerun the selection.
 7. Render the surrounding 3 lines of YAML of all Pods that have annotations.
 
-==============================================================================================
+==============================================================
 
 # Exercise 12: rolling-updates-deployment
 
@@ -239,7 +239,7 @@ In this exercise, you will create a Deployment with multiple replicas. After ins
 8. Ensure that the Pods use the image `nginx`.
 9. (Optional) Discuss: Can you foresee potential issues with a rolling deployment? How do you configure a update process that first kills all existing containers with the current version before it starts containers with the new version?
 
-==============================================================================================
+==============================================================
 
 # Exercise 13: creating-cronjob
 
@@ -253,7 +253,7 @@ In this exercise, you will create a CronJob and render its executions.
 4. Determine the number of successful executions the CronJob will keep in its history.
 5. Delete the Job.
 
-==============================================================================================
+==============================================================
 
 # Exercise 14: exposing-service
 
@@ -270,7 +270,7 @@ In this exercise, you will create a Deployment and expose a container port for i
 7. (Optional) Discuss: Can you expose the Pods as a service without a deployment?
 8. (Optional) Discuss: Under what condition would you use the service type `LoadBalancer`?
 
-==============================================================================================
+==============================================================
 
 # Exercise 15: creating-networkpolicy
 
@@ -334,7 +334,7 @@ spec:
 4. The network policy should allow incoming traffic from the backend to the database but disallow incoming traffic from the frontend.
 5. Incoming traffic to the database should only be allowed on TCP port 3306 and no other port.
 
-==============================================================================================
+==============================================================
 
 # Exercise 16: creating-persistentvolume
 
