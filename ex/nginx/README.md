@@ -1,5 +1,15 @@
 # Usage
 
+* Requires `../coredns` to be running before. The containers' `nfs.meia.lan` resolution is provided by CoreDNS.
+
+* If minikube, enable Ingress with: `minikube addons enable ingress`.
+
+* DNS resolution to `nfs.meia.lan` is required (if minikube, inside /etc/hosts)
+
+```
+192.168.1.50    		nfs.meia.lan
+```
+
 * Minikube or bare-metal K8s don't have an integrated load balancer. Only NodePort or Ingress can be used, so, in order to publish to the cluster exterior, see https://stackoverflow.com/questions/44110876/kubernetes-service-external-ip-pending.
 
 ```
@@ -65,3 +75,37 @@ $ kl
 $ curl 10.100.227.254
 Hello, World!
 ```
+
+Once this is running, check that Ingress has got an IP address:
+```
+kll
+	NAME                              CLASS    HOSTS            ADDRESS        PORTS   AGE
+	ingress.networking.k8s.io/nginx   <none>   nginx.meia.lan   192.168.49.2   80      3m43s
+						   ^^^^^^^^^^^^^^   ^^^^^^^^^^^^
+```
+So, add such mapping to `/etc/hosts` or to your DNS server.
+```
+192.168.49.2 	nginx.meia.lan
+```
+
+Then, browse for `http://nginx.meia.lan`
+
+# Troubleshooting
+
+### Ingress issues
+
+* Problem:
+```
+k.describe ingress.networking.k8s.io/nginx
+	...
+	Default backend:  default-http-backend:80 (<error: endpoints "default-http-backend" not found>)
+```
+* Solution: a) Ingress is not installed; b) When Ingress is installed, the error continues to raise, dissmiss it.
+
+### DNS problems
+
+* If nginx/pods don't start, there's probably an NFS problem.
+
+	* Check that the NFS service is started and reachable. Run a `k.bash.img nginx` and try an NFS mount.
+	* Check that Minikube (`/etc/hosts`) has an entry to `nfs.meia.lan`.
+	* Check that CoreDNS is available.
